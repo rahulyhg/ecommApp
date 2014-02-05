@@ -27,7 +27,7 @@ class Model_Product extends \Model_Table{
 													'kg'=>'KiloGramme',
 													'gramme'=>'Gramme',
 													'mg'=>'milligramme',
-													'pound'=>'Pound'))->Caption('Product Length');
+													'pound'=>'Pound'))->Caption('Product Weight');
 		
 		$this->addField('extra_info')->system(true);
 		$this->addField('description')->type('text')->Caption('Product Description');
