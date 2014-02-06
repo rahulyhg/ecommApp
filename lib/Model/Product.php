@@ -14,11 +14,11 @@ class Model_Product extends \Model_Table{
 		$this->addField('code')->Caption('Product SKU');
 		$this->addField('alias')->Caption('Product Alias');
 		$this->addField('image')->display(array('form'=>'ElImage'));
-		$this->addField('rate')->type('float');
-		$this->addField('gross_amount')->type('float');
-		$this->addField('tax_amount')->type('float');
-		$this->addField('discount_amount')->type('float');
-		$this->addField('net_amount')->type('float');
+		$this->addField('rate')->type('money');
+		$this->addField('gross_amount')->type('money');
+		$this->addField('tax_amount')->type('money');
+		$this->addField('discount_amount')->type('money');
+		$this->addField('net_amount')->type('money');
 	
 		$this->addField('length')->Caption('Product Length');
 		$this->addField('width')->Caption('Product Width');
