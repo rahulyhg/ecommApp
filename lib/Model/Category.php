@@ -15,9 +15,11 @@ class Model_Category extends \Model_Table{
 		$this->addField('description')->type('text')->Caption('Category Description');
 		$this->addField('meta_keyword')->type('text')->Caption('Meta Keyword');
 		$this->addField('meta_description')->type('text')->Caption('Meta Description');
+		$this->addHook('beforeDelete','$this');
 		
 		
 		$this->hasMany('ecommApp/Product','category_id');
+		
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
