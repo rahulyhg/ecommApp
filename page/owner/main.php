@@ -16,6 +16,7 @@ class page_ecommApp_page_owner_main extends page_componentBase_page_owner_main{
 				->addMenuItem('ecommApp_page_owner_brand','Products Brands')
 				->addMenuItem('ecommApp_page_owner_categories','Products Category')
 				->addMenuItem('ecommApp_page_owner_shipping','Shipping')
+				->addMenuItem('ecommApp_page_owner_members','Members / Shoppers')
 				->addMenuItem('ecommApp_page_owner_shopsettings','Shop Settings')
 
 				;

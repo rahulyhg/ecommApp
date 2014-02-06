@@ -9,7 +9,7 @@ class Model_Order extends \Model_Table{
 		parent::init();
 		$this->hasOne('ecommApp/Shop','shop_id');
 		$this->hasOne('ecommApp/Member','member_id');
-
+		
 		$this->addField('total_gross_amount');
 		$this->addField('total_tax_amount');
 		$this->addField('total_discount_amount');

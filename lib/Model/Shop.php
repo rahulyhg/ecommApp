@@ -13,6 +13,8 @@ class Model_Shop extends \Model_Table{
 
 		$this->hasMany('ecommApp/Category','shop_id');
 		$this->hasMany('ecommApp/Brand','shop_id');
+		$this->hasMany('ecommApp/Order','shop_id');
+		$this->hasMany('ecommApp/Member','shop_id');
 
 		$this->addCondition('epan_id',$this->api->current_website->id);
 
