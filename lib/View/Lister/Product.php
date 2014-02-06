@@ -2,7 +2,7 @@
 
 namespace ecommApp;
 
-class View_Lister_Category extends \CompleteLister{
+class View_Lister_Product extends \CompleteLister{
 
 
 	function setModel($model){
@@ -21,7 +21,7 @@ class View_Lister_Category extends \CompleteLister{
 				)
 			)->setParent($l);
 
-		return array('view/ecommApp-categorylist');
+		return array('view/ecommApp-productlist');
 	}
 
 }
