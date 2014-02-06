@@ -7,6 +7,7 @@ class Model_Category extends \Model_Table{
 
 	function init(){
 		parent::init();
+
 		$this->hasOne('ecommApp/Shop','shop_id');
 		$this->addField('name')->Caption('Category Name');
 		$this->addField('alias')->Caption('Categories Alias');
@@ -15,10 +16,16 @@ class Model_Category extends \Model_Table{
 		$this->addField('description')->type('text')->Caption('Category Description');
 		$this->addField('meta_keyword')->type('text')->Caption('Meta Keyword');
 		$this->addField('meta_description')->type('text')->Caption('Meta Description');
-		$this->addHook('beforeDelete','$this');
 		
+		$this->hasMany('ecommApp/Category','category_id');
 		
-		$this->hasMany('ecommApp/Product','category_id');
+		// $this->addHook('beforeDelete',$this);
+		
+		// function beforeDelete(){
+		// 	if($this['name'] > 0 OR $this->ref('Product')->count()->getOne()){
+		// 		throw $this->exception('can not be deleted');
+		// 	}
+		
 		
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
