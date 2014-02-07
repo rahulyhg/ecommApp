@@ -8,12 +8,8 @@ class page_ecommApp_page_owner_products extends page_ecommApp_page_owner_main{
 		$this->add('H1')->setHTML('Product Setting <small>Update your Product settings</small>');
 		$crud= $this->add('CRUD');
 		$crud->setModel('ecommApp/Model_Product');
-		//$form->addSubmit('Update');
-
-		// if($form->isSubmitted()){
-		// 	$form->update();
-		// 	$form->js()->univ()->successMessage('Product Settings Updated')->execute();
-		// }
+		$crud->addRef('ecommApp/ProductDetails',array('label'=>'Details'));
+		$crud->addRef('ecommApp/CustomFields',array('label'=>'Choices'));
 
 	}
 }

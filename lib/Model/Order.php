@@ -20,6 +20,9 @@ class Model_Order extends \Model_Table{
 
 		$this->hasMany('ecommApp/OrderDetails','order_id');
 		$this->hasMany('ecommApp/Payments','order_id');
+
+		$this->addCondition('shop_id',$this->add('ecommApp/Model_Shop')->loadAny()->get('id'));
+
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
 }

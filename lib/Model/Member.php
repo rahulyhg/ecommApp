@@ -13,6 +13,9 @@ class Model_Member extends \Model_Table{
 		$this->addField('password');
 
 		$this->hasMany('ecommApp/Order','member_id');
+
+		$this->addCondition('shop_id',$this->add('ecommApp/Model_Shop')->loadAny()->get('id'));
+		
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
