@@ -7,34 +7,28 @@ class Model_Product extends \Model_Table{
 
 	function init(){
 		parent::init();
+		$this->hasOne('ecommApp/Shop','shop_id')->defaultValue($this->add('ecommApp/Model_Shop')->loadAny()->get('id'));
 		$this->hasOne('ecommApp/Category','category_id');
 		$this->hasOne('ecommApp/Brand','brand_id');
 		$this->addField('name')->Caption('Product Name');
 		$this->addField('is_active')->type('boolean')->Caption('Publish ');
 		$this->addField('code')->Caption('Product SKU');
 		$this->addField('alias')->Caption('Product Alias');
-		$this->addField('image')->display(array('form'=>'ElImage'));
-		$this->addField('rate')->type('money');
-		$this->addField('gross_amount')->type('money');
-		$this->addField('tax_amount')->type('money');
-		$this->addField('discount_amount')->type('money');
-		$this->addField('net_amount')->type('money');
-	
-		$this->addField('length')->Caption('Product Length');
-		$this->addField('width')->Caption('Product Width');
-		$this->addField('height')->Caption('Product Height');
-		$this->addField('weight')->setValueList(array(
-													'kg'=>'KiloGramme',
-													'gramme'=>'Gramme',
-													'mg'=>'milligramme',
-													'pound'=>'Pound'))->Caption('Product Weight');
+		$this->addField('image')->display(array('form'=>'ElImage'))->caption('Main Image');
+		$this->addField('price')->Caption('Product Price');
 		
-		$this->addField('extra_info')->system(true);
+	
+		
+		
 		$this->addField('description')->type('text')->Caption('Product Description');
 		$this->addField('meta_keyword')->type('text')->Caption('Meta Keyword');
 		$this->addField('meta_description')->type('text')->Caption('Meta Description');
 		
 		$this->hasMany('ecommApp/CustomFields','product_id');
+		$this->hasMany('ecommApp/ProductDetails','product_id');
+
+		$this->addCondition('shop_id',$this->add('ecommApp/Model_Shop')->loadAny()->get('id'));
+
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
