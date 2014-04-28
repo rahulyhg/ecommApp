@@ -1,13 +1,14 @@
 <?php
 
-namespace ecommApp;
+namespace xecommApp;
 
 class Model_ProductDetails extends \Model_Table {
-	var $table= "ecommApp_ProductDetails";
+	var $table= "xecommApp_ProductDetails";
 	function init(){
 		parent::init();
 
-		$this->hasOne('ecommApp/Product','product_id');
+		$this->hasOne('xecommApp/Product','product_id');
+
 		$this->addField('name')->caption('Parameter');
 		$this->addField('value');
 

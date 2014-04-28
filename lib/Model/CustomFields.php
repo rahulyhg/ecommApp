@@ -1,16 +1,19 @@
 <?php
 
-namespace ecommApp;
+namespace xecommApp;
 
 class Model_CustomFields extends \Model_Table{
-	public $table='ecommApp_CustomFields';
+	public $table='xecommApp_custom_fields';
 
 	function init(){
 		parent::init();
-		$this->hasOne('ecommApp/Product','product_id');
-		$this->addField('name')->caption('Field Name');
-		$this->addField('value')->hint('Comma Separated Values i.e. Red, Green, Blue');
+		$this->hasOne('xecommApp/Product','product_id');
+		$this->addField('name');
+		$this->addField('value');
+		$this->hasMany('xecommApp/CustomFieldValue','customefield_id');
+
 
 		$this->add('dynamic_model/Controller_AutoCreator');
 	}
 }
+
